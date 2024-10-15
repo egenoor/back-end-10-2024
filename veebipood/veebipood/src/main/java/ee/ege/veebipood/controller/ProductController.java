@@ -1,10 +1,12 @@
-package ee.ege.veebipood;
+package ee.ege.veebipood.controller;
 
+import ee.ege.veebipood.entity.Nutrients;
+import ee.ege.veebipood.entity.Product;
+import ee.ege.veebipood.repository.NutrientsRepository;
+import ee.ege.veebipood.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -21,6 +23,9 @@ public class ProductController {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    private NutrientsRepository nutrientsRepository;
+
     // localhost:8080/products
     @GetMapping("/products")
     public List<Product> getProducts() {
@@ -31,6 +36,14 @@ public class ProductController {
     @GetMapping("/add-product")
     public List<Product> addProduct(@RequestParam String name, @RequestParam double price) {
         productRepository.save(new Product(name));
+        return productRepository.findAll();
+    }
+
+    @PostMapping("/product")
+    public List<Product> saveProduct(@RequestBody Product product) {
+        Nutrients nutrients = nutrientsRepository.save(product.getNutrients());
+        product.setNutrients(nutrients);
+        productRepository.save(product);
         return productRepository.findAll();
     }
 

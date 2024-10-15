@@ -1,4 +1,4 @@
-package ee.ege.veebipood;
+package ee.ege.veebipood.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,22 +9,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 @Setter
+@Getter
 @Entity
-public class Product {
+public class Nutrients {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private double price;
-    private String image;
-    private boolean active;
-    private String description;
-
-    public Product(String name) {
-        this.name = name;
-    }
+    private int protein;
+    private int carbohydrates;
+    private int fat;
 }
