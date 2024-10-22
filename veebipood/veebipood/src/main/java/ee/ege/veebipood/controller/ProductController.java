@@ -2,14 +2,14 @@ package ee.ege.veebipood.controller;
 
 import ee.ege.veebipood.entity.Nutrients;
 import ee.ege.veebipood.entity.Product;
-import ee.ege.veebipood.repository.NutrientsRepository;
 import ee.ege.veebipood.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController // API päringute jaoks
 public class ProductController {
 
@@ -23,13 +23,15 @@ public class ProductController {
     @Autowired
     ProductRepository productRepository;
 
-    @Autowired
-    private NutrientsRepository nutrientsRepository;
-
     // localhost:8080/products
-    @GetMapping("/products")
-    public List<Product> getProducts() {
+    @GetMapping("/all-products")
+    public List<Product> getAllProducts() {
         return productRepository.findAll(); //SELECT * FROM product
+    }
+
+    @GetMapping("/products")
+    public Page<Product> getProducts(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
     // add
@@ -41,8 +43,7 @@ public class ProductController {
 
     @PostMapping("/product")
     public List<Product> saveProduct(@RequestBody Product product) {
-        Nutrients nutrients = nutrientsRepository.save(product.getNutrients());
-        product.setNutrients(nutrients);
+
         productRepository.save(product);
         return productRepository.findAll();
     }

@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import {useState, useEffect} from 'react';
 
 function App() {
     const [products, setProducts] = useState([])
@@ -7,11 +7,13 @@ function App() {
     useEffect(() => {
         fetch("http://localhost:8080/products")
             .then(res => res.json())
-            .then(json => setProducts(json));
+            .then(json => setProducts(json.content));
     }, []);
 
     const add = () => {
-        fetch("http://localhost:8080/add-product?name=coca&price=2")
+        fetch("http://localhost:8080/add-product?name=coca&price=2",
+          // {method: "POST", body: JSON.stringify(), headers: {"Content-Type": "application/json"}}
+        )
             .then(res => res.json())
             .then(json => setProducts(json))
     }

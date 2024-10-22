@@ -25,7 +25,7 @@ public class Product {
 // @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Nutrients nutrients;
 
     public Product(String name) {

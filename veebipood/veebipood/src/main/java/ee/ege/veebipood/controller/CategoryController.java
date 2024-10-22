@@ -6,6 +6,10 @@ import ee.ege.veebipood.repository.CategoryRepository;
 import ee.ege.veebipood.repository.ProductRepository;
 import ee.ege.veebipood.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,25 +34,25 @@ public class CategoryController {
     // }
 
     @GetMapping("category")
-    public List<Category> getCategories() {
-        return categoryRepository.findAll();
+    public ResponseEntity<List<Category>> getCategories() {
+        return ResponseEntity.ok().body(categoryRepository.findAll());
     }
 
     @PostMapping("category")
-    public List<Category> addCategory(@RequestBody Category category) {
+    public ResponseEntity<List<Category>> addCategory(@RequestBody Category category) {
         categoryRepository.save(category);
-        return categoryRepository.findAll();
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoryRepository.findAll());
     }
 
     @GetMapping("category-products/{categoryId}")
-    public List<Product> getCategoryProducts(@PathVariable Long categoryId) {
-        return productRepository.findByCategory_Id(categoryId);
+    public ResponseEntity<List<Product>> getCategoryProducts(@PathVariable Long categoryId) {
+        return ResponseEntity.ok().body(productRepository.findByCategory_Id(categoryId));
     }
 
     @GetMapping("protein-category-products/{categoryId}")
-    public int getProteinInCategoryProducts(@PathVariable Long categoryId) {
+    public ResponseEntity<Integer> getProteinInCategoryProducts(@PathVariable Long categoryId) {
         List<Product> products = productRepository.findByCategory_Id(categoryId);
-        return categoryService.getProteins(products);
+        return ResponseEntity.ok().body(categoryService.getProteins(products));
     }
 
     // localhost:8080/category?categoryId=1&productId=4
