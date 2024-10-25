@@ -1,3 +1,7 @@
 @for (product of products; track product) {
   <p>{{product.name}}</p>
+  <p>{{product.price}}</p>
+  <button (click)="addToCart(product)">Lisa ostukorvi</button>
+  <!-- <button routerLink="/product/{{product.id}}">Vaata detailsemat</button> -->
+   <button [routerLink]="['product', product.id]">Vt detailsemalt</button>
 }

@@ -34,6 +34,11 @@ public class ProductController {
         return productRepository.findAll(pageable);
     }
 
+    @GetMapping("/product")
+    public Product getProduct(@RequestParam Long id) {
+        return productRepository.findById(id).orElseThrow(); // .get() ja .orElseThrow() on samad asjad
+    }
+
     // add
     @GetMapping("/add-product")
     public List<Product> addProduct(@RequestParam String name, @RequestParam double price) {

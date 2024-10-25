@@ -1,1 +1,26 @@
-<p>cart works!</p>
+@if(view === "cart") {
+  @for (orderRow of cart; track orderRow; let i = $index) {
+    <div>{{orderRow.product.name}}</div>
+    <div>{{orderRow.product.price.toFixed(2)}} €</div>
+    <button (click)="decreaseQuantity(i)">-</button>
+    <div>{{orderRow.pcs}}</div>
+    <button (click)="increaseQuantity(i)">+</button>
+    <div>{{(orderRow.product.price * orderRow.pcs).toFixed(2)}} €</div>
+    <button (click)="removeFromCart(i)">x</button>
+  }
+
+  <div>
+    Total in cart: {{calculateTotal()}} €
+  </div>
+  <button (click)="changeView('emailInput')">Go and insert email</button>
+}
+
+@if(view === "emailInput") {
+  <label>E-mail</label>
+  <input [(ngModel)]="email" type="text">
+  <button (click)="changeView('pay')">Insert</button>
+}
+
+@if(view === "pay") {
+  <button (click)="sendOrderToBE()">Maksa ja telli</button>
+}
