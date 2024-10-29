@@ -20,4 +20,9 @@ public class AuthController {
         personService.savePerson(person);
         return "sisselogimise token";
     }
+
+    @GetMapping("login")
+    public String login() {
+        return "tagastan sisselogimise tokeni";
+    }
 }

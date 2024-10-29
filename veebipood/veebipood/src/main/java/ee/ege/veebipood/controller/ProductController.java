@@ -48,7 +48,6 @@ public class ProductController {
 
     @PostMapping("/product")
     public List<Product> saveProduct(@RequestBody Product product) {
-
         productRepository.save(product);
         return productRepository.findAll();
     }
@@ -60,6 +59,11 @@ public class ProductController {
     public List<Product> deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
         return productRepository.findAll();
+    }
+
+    @GetMapping("/find-by-name")
+    public Page<Product> findProductsByName(@RequestParam String name, Pageable pageable) {
+        return productRepository.findByNameContainsIgnoreCase(name, pageable);
     }
 
 }

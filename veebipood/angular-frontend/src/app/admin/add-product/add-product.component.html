@@ -1,0 +1,21 @@
+<form #addProductForm="ngForm" (submit)="addProduct(addProductForm)">
+  <label></label>Name<br />
+  <input type="text" ngModel name="name" /><br />
+  <label></label>Price<br />
+  <input type="text" ngModel name="price" /><br />
+  <label></label>Image<br />
+  <input type="text" ngModel name="image" /><br />
+  <label></label>Active<br />
+  <input type="text" ngModel name="active" /><br />
+  <label></label>Description<br />
+  <input type="text" ngModel name="description" /><br />
+  <label></label>Protein<br />
+  <input type="text" ngModel name="protein" /><br />
+  <label></label>Carbohydrate<br />
+  <input type="text" ngModel name="carbohydrate" /><br />
+  <label></label>Fat<br />
+  <input type="text" ngModel name="fat" /><br />
+  <label></label>Category<br />
+  <input type="text" ngModel name="category" /><br /><br />
+  <button type="button" class="btn btn-primary">Add</button>
+</form>

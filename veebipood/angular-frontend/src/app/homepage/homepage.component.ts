@@ -8,18 +8,41 @@ import { ProductService } from '../services/product.service'
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, FormsModule],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent implements OnInit{
   products: Product[] = [];
+  search = "";
+  page = 0;
+  totalPages = 0;
+  totalElements = 0;
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.productService.getProducts().subscribe(response => this.products = response)
+    this.productService.getProducts(0, 3).subscribe(response => this.products = response.content);
+  }
+
+  previousPage() {
+    this.page--;
+    this.fetchProducts();
+  }
+
+  nextPage() {
+    this.page++;
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.productService.getProducts(this.page, 3).subscribe(response => {
+      this.products = response.content; 
+      this.totalPages = response.totalPages;
+      this.totalElements = response.totalElements;
+    });
   }
 
   addToCart(productClicked: Product): void {
@@ -33,6 +56,10 @@ export class HomepageComponent implements OnInit{
       cartLS.push({pcs: 1, product: productClicked});
     }
     localStorage.setItem("cart", JSON.stringify(cartLS));
+  }
+
+  searchFromProducts() {
+    this.productService.getProductsByName(this.search).subscribe(response => this.products = response.content)
   }
 }
 

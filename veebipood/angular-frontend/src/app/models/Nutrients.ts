@@ -1,6 +1,8 @@
-export interface Nutrients {
-  id: number;
-  protein: number;
-  carbohydrates: number;
-  fat: number;
+export class Nutrients {
+  constructor(
+  public protein: number,
+  public carbohydrates: number,
+  public fat: number,
+  public id?: number
+  ) {}
 }
