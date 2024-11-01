@@ -17,6 +17,7 @@ import lombok.Setter;
 public class Person {
     @Id
     private String email;
+    private String password;
     private String firstName;
     private String lastName;
 

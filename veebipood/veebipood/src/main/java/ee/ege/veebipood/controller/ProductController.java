@@ -1,15 +1,17 @@
 package ee.ege.veebipood.controller;
 
-import ee.ege.veebipood.entity.Nutrients;
 import ee.ege.veebipood.entity.Product;
 import ee.ege.veebipood.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController // API päringute jaoks
 public class ProductController {
 
@@ -25,7 +27,11 @@ public class ProductController {
 
     // localhost:8080/products
     @GetMapping("/all-products")
+
     public List<Product> getAllProducts() {
+//        log.info(SecurityContextHolder.getContext().getAuthentication().getCredentials());
+//        log.info(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+//        log.info(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         return productRepository.findAll(); //SELECT * FROM product
     }
 
