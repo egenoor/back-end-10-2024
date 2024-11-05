@@ -25,17 +25,12 @@ public class ProductController {
     @Autowired
     ProductRepository productRepository;
 
-    // localhost:8080/products
-    @GetMapping("/all-products")
-
+    @GetMapping("/products")
     public List<Product> getAllProducts() {
-//        log.info(SecurityContextHolder.getContext().getAuthentication().getCredentials());
-//        log.info(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-//        log.info(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         return productRepository.findAll(); //SELECT * FROM product
     }
 
-    @GetMapping("/products")
+    @GetMapping("/public-products")
     public Page<Product> getProducts(Pageable pageable) {
         return productRepository.findAll(pageable);
     }
@@ -46,13 +41,13 @@ public class ProductController {
     }
 
     // add
-    @GetMapping("/add-product")
-    public List<Product> addProduct(@RequestParam String name, @RequestParam double price) {
-        productRepository.save(new Product(name));
-        return productRepository.findAll();
-    }
+//    @PostMapping("/add-product")
+//    public List<Product> addProduct(@RequestParam String name, @RequestParam double price) {
+//        productRepository.save(new Product(name));
+//        return productRepository.findAll();
+//    }
 
-    @PostMapping("/product")
+    @PostMapping("/products")
     public List<Product> saveProduct(@RequestBody Product product) {
         productRepository.save(product);
         return productRepository.findAll();
@@ -61,7 +56,7 @@ public class ProductController {
     // localhost:8080/delete-product?name=Vichy&kategooria=Vesi <- järjekord pole tähtis
     // localhost:8080/delete-product/Vichy/vesi <- järjekord on tähtis
     // delete
-    @GetMapping("/delete-product/{id}")
+    @DeleteMapping("/delete-product/{id}")
     public List<Product> deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
         return productRepository.findAll();

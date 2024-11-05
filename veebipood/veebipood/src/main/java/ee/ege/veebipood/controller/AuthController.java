@@ -7,10 +7,17 @@ import ee.ege.veebipood.repository.OrderRepository;
 import ee.ege.veebipood.repository.PersonRepository;
 import ee.ege.veebipood.service.AuthService;
 import ee.ege.veebipood.service.PersonService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@Log4j2
 @RestController
 public class AuthController {
 
@@ -30,11 +37,12 @@ public class AuthController {
     AuthService authService;
 
     @PostMapping("signup")
-    public String signup(@RequestBody Person person){
+    public Token signup(@RequestBody Person person){
         String hashedPassword = encoder.encode(person.getPassword());
         person.setPassword(hashedPassword);
         personService.savePerson(person);
-        return "sisselogimise token";
+        Person savedPerson = personService.savePerson(person);
+        return authService.getToken(person);
     }
 
     @PostMapping("login")
@@ -45,5 +53,11 @@ public class AuthController {
         }
         // pigem exceptioni väljaviskamine
         return new Token();
+    }
+
+    @GetMapping("admin")
+    public boolean isAdmin() {
+        GrantedAuthority authority = new SimpleGrantedAuthority("admin");
+        return SecurityContextHolder.getContext().getAuthentication().getAuthorities().contains(authority);
     }
 }

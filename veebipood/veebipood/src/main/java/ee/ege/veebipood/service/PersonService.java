@@ -21,10 +21,10 @@ public class PersonService {
 
     // @Transactional // salvestab ära kõik mis on funktsiooni sees, aga kui kasvõi 1 feilib
     // siis keerab kogu asja tagasi
-    public void savePerson(Person person) {
+    public Person savePerson(Person person) {
 //        Address address = addressRepository.save(person.getAddress());
 //        person.setAddress(address);
-        personRepository.save(person);
+        return personRepository.save(person);
     }
 
     public List<PersonAddressDTO> getPersonAddressDTO(List<Person> persons) {

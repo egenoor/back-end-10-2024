@@ -22,6 +22,7 @@ public class AuthService {
         claims.put("email", person.getEmail());
         claims.put("firstName", person.getFirstName());
         claims.put("lastName", person.getLastName());
+        claims.put("admin", String.valueOf(person.isAdmin()));
 
         String security = "9j1guhInbR6amGtnEVlaRplTTP/cQIMmF3T3+9Pim6x1ynBnwmbBq5+K0YH1mVU4F/fay74Tz1aiCXuVzXdhpw==";
         SecretKey signingKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(security));

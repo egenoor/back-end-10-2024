@@ -14,6 +14,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.stereotype.Component;
@@ -41,8 +42,6 @@ public class JwtFilter extends BasicAuthenticationFilter {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.replace("Bearer ", "");
             System.out.println(token);
-
-            List<GrantedAuthority> authorities = new ArrayList<>();
 
             String security = "9j1guhInbR6amGtnEVlaRplTTP/cQIMmF3T3+9Pim6x1ynBnwmbBq5+K0YH1mVU4F/fay74Tz1aiCXuVzXdhpw==";
             SecretKey signingKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(security));
@@ -73,6 +72,13 @@ public class JwtFilter extends BasicAuthenticationFilter {
 
             String email = claims.get("email").toString();
             String credentials = claims.get("firstName") + " " + claims.get("lastName");
+            boolean admin = claims.get("admin").equals("true");
+
+            List<GrantedAuthority> authorities = new ArrayList<>();
+            if (admin) {
+                GrantedAuthority authority = new SimpleGrantedAuthority("admin");
+                authorities.add(authority);
+            }
                                                                             // tokeni seest email tokeni seest credentials
             Authentication auth = new UsernamePasswordAuthenticationToken(email, credentials, authorities);
             SecurityContextHolder.getContext().setAuthentication(auth); // see rida teeb autendituks

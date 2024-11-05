@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +21,9 @@ public class Person {
     private String password;
     private String firstName;
     private String lastName;
+
+    @ColumnDefault("false")
+    private boolean admin;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;

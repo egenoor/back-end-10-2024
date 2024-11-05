@@ -4,6 +4,7 @@ import ee.ege.veebipood.security.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,9 +26,16 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests(
                         requests -> requests
-                                .requestMatchers(new AntPathRequestMatcher("/products")).permitAll()
-                                .requestMatchers(new AntPathRequestMatcher("/signup")).permitAll()
-                                .requestMatchers(new AntPathRequestMatcher("/login")).permitAll()
+                                .requestMatchers("/public-products").permitAll()
+                                .requestMatchers("/find-by-name").permitAll()
+                                .requestMatchers("/signup").permitAll()
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/admin").permitAll()
+                                .requestMatchers("/all-products").hasAuthority("admin")
+                                .requestMatchers(HttpMethod.POST, ("/categories")).hasAuthority("admin") // POST
+                                .requestMatchers(HttpMethod.GET, ("/categories")).permitAll() // GET
+                                .requestMatchers("/products/**").hasAuthority("admin")
+
                                 .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, BasicAuthenticationFilter.class)
                 .build();

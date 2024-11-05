@@ -33,12 +33,12 @@ public class CategoryController {
     // this.categoryRepository = categoryRepository;
     // }
 
-    @GetMapping("category")
+    @GetMapping("categories")
     public ResponseEntity<List<Category>> getCategories() {
         return ResponseEntity.ok().body(categoryRepository.findAll());
     }
 
-    @PostMapping("category")
+    @PostMapping("categories")
     public ResponseEntity<List<Category>> addCategory(@RequestBody Category category) {
         categoryRepository.save(category);
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryRepository.findAll());

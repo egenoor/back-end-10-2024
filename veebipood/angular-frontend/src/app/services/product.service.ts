@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { Product } from '../models/Product'
@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(pageNr: number, pageSize: number): Observable<ProductPage> {
-    return this.http.get<ProductPage>("http://localhost:8080/products", {params: {page: pageNr, pageSize: pageSize}});
+    return this.http.get<ProductPage>("http://localhost:8080/public-products", {params: {page: pageNr, pageSize: pageSize}});
   }
 
   getProduct(productId: number): Observable<Product> {
@@ -24,6 +24,12 @@ export class ProductService {
   }
 
   addProduct(product: Product): Observable<void> {
-    return this.http.post<void>("http://localhost:8080/product", product)
+    const headers = new HttpHeaders();
+    // headers.set("Authorization","Bearer " + sessionStorage.getItem("token") || "")
+    console.log(headers);
+    return this.http.post<void>("http://localhost:8080/products", 
+      product,
+      {headers: {"Authorization": "Bearer " + (sessionStorage.getItem("token")) || ""}}
+    );
   }
 }
