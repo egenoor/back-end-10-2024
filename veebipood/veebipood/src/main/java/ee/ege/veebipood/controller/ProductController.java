@@ -1,12 +1,13 @@
 package ee.ege.veebipood.controller;
 
 import ee.ege.veebipood.entity.Product;
+import ee.ege.veebipood.exception.ValidationException;
 import ee.ege.veebipood.repository.ProductRepository;
+import ee.ege.veebipood.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,9 @@ public class ProductController {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    ProductService productService;
+
     @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productRepository.findAll(); //SELECT * FROM product
@@ -37,7 +41,7 @@ public class ProductController {
 
     @GetMapping("/product")
     public Product getProduct(@RequestParam Long id) {
-        return productRepository.findById(id).orElseThrow(); // .get() ja .orElseThrow() on samad asjad
+        return productRepository.findById(id).orElse(null); // .get() ja .orElseThrow() on samad asjad
     }
 
     // add
@@ -48,7 +52,8 @@ public class ProductController {
 //    }
 
     @PostMapping("/products")
-    public List<Product> saveProduct(@RequestBody Product product) {
+    public List<Product> saveProduct(@RequestBody Product product) throws ValidationException {
+        productService.validateProduct(product);
         productRepository.save(product);
         return productRepository.findAll();
     }

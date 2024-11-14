@@ -1,8 +1,10 @@
 import { Address } from './Address'
 
-export interface Person {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-  address?: Address;
+export class Person {
+  constructor(public email: string,
+    public password?: string,
+    public firstName?: string,
+    public lastName?: string,
+    public address?: Address
+  ){}
 }

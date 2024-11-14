@@ -26,4 +26,8 @@ export class AuthService {
       {headers: {"Authorization": "Bearer " + (sessionStorage.getItem("token")) || ""}}
     );
   }
+
+  signup(person: Person): Observable<Token> {
+    return this.http.post<Token>("http://localhost:8080/signup", person);
+  }
 }

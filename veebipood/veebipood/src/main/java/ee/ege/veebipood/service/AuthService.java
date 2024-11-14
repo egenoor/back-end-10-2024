@@ -1,9 +1,10 @@
 package ee.ege.veebipood.service;
 
 import ee.ege.veebipood.entity.Person;
+import ee.ege.veebipood.exception.ValidationException;
 import ee.ege.veebipood.model.Token;
+import ee.ege.veebipood.util.ValidationUtil;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,8 @@ import java.util.Map;
 
 @Service
 public class AuthService {
+
+
 
     public Token getToken(Person person) {
         Date expirationDate = new Date((new Date()).getTime() + 2 * 3600*1000);
@@ -39,4 +42,29 @@ public class AuthService {
         return token;
     }
 
+    public void validate(Person person) throws ValidationException {
+        if (person.getEmail() == null || person.getEmail().isEmpty()) {
+            //return ResponseEntity.badRequest().body("Email cannot be empty");
+            throw new ValidationException("Email cannot be empty");
+        }
+
+        if (!ValidationUtil.validateEmail(person.getEmail())) {
+            throw new ValidationException("Email is not correct");
+        }
+
+        if (person.getPassword() == null || person.getPassword().isEmpty()) {
+            //return ResponseEntity.badRequest().body("Email cannot be empty");
+            throw new ValidationException("Password cannot be empty");
+        }
+
+        if (person.getFirstName() == null || person.getFirstName().isEmpty()) {
+            //return ResponseEntity.badRequest().body("Email cannot be empty");
+            throw new ValidationException("First name cannot be empty");
+        }
+
+        if (person.getLastName() == null || person.getLastName().isEmpty()) {
+            //return ResponseEntity.badRequest().body("Email cannot be empty");
+            throw new ValidationException("Last name cannot be empty");
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package ee.ege.veebipood.controller;
 
 import ee.ege.veebipood.entity.Person;
+import ee.ege.veebipood.exception.ValidationException;
 import ee.ege.veebipood.model.EmailPassword;
 import ee.ege.veebipood.model.Token;
 import ee.ege.veebipood.repository.OrderRepository;
@@ -9,13 +10,12 @@ import ee.ege.veebipood.service.AuthService;
 import ee.ege.veebipood.service.PersonService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Log4j2
 @RestController
@@ -37,12 +37,13 @@ public class AuthController {
     AuthService authService;
 
     @PostMapping("signup")
-    public Token signup(@RequestBody Person person){
+    public ResponseEntity<Token> signup(@RequestBody Person person) throws ValidationException {
+        authService.validate(person);
         String hashedPassword = encoder.encode(person.getPassword());
         person.setPassword(hashedPassword);
         personService.savePerson(person);
         Person savedPerson = personService.savePerson(person);
-        return authService.getToken(person);
+        return ResponseEntity.ok().body(authService.getToken(savedPerson));
     }
 
     @PostMapping("login")

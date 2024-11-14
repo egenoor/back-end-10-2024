@@ -4,5 +4,9 @@ body {
   text-align: center;
 }
 
+.error {
+  background-color: lightpink;
+}
+
 // Then import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";

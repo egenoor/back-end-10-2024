@@ -28,6 +28,7 @@ public class SecurityConfig {
                         requests -> requests
                                 .requestMatchers("/public-products").permitAll()
                                 .requestMatchers("/find-by-name").permitAll()
+                                .requestMatchers("/product").permitAll()
                                 .requestMatchers("/signup").permitAll()
                                 .requestMatchers("/login").permitAll()
                                 .requestMatchers("/admin").permitAll()

@@ -13,6 +13,8 @@ import { ProductService } from '../../services/product.service'
   styleUrl: './add-product.component.scss'
 })
 export class AddProductComponent {
+  message: string = "";
+
   constructor(private productService: ProductService) {}
   addProduct(form: NgForm) {
     const val = form.value;
@@ -33,6 +35,10 @@ export class AddProductComponent {
         ""
       )
     )
-    this.productService.addProduct(product).subscribe();
-  };
+    this.productService.addProduct(product).subscribe(() => {},
+    error => {
+      this.message = error.error.name;
+    }
+  );
+  }
 }

@@ -1,11 +1,16 @@
-@if(product !== undefined) {
-  <div>{{product.id}}</div>
-  <div>{{product.name}}</div>
-  <div>{{product.price}}</div>
-  <div>{{product.category.name}}</div>
-  <div>{{product.description}}</div>
-  <div>{{product.active}}</div>
-  <div>{{product.nutrients.carbohydrates}}</div>
-  <div>{{product.nutrients.fat}}</div>
-  <div>{{product.nutrients.protein}}</div>
+@if(product !== undefined && product !== null) {
+<div>{{ product.id }}</div>
+<div>{{ product.name }}</div>
+<div>{{ product.price }}</div>
+<div>{{ product.category.name }}</div>
+<div>{{ product.description }}</div>
+<div>{{ product.active }}</div>
+@if (product.nutrients !== null) {
+<div>{{ product.nutrients.carbohydrates }}</div>
+<div>{{ product.nutrients.fat }}</div>
+<div>{{ product.nutrients.protein }}</div>
+} } @if (product === undefined) {
+<div>Loading</div>
+} @if (product === null) {
+<div>Product not found</div>
 }
