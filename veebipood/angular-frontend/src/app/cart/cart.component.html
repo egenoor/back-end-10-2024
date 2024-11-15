@@ -1,26 +1,43 @@
-@if(view === "cart") {
-  @for (orderRow of cart; track orderRow; let i = $index) {
-    <div>{{orderRow.product.name}}</div>
-    <div>{{orderRow.product.price.toFixed(2)}} €</div>
-    <button (click)="decreaseQuantity(i)">-</button>
-    <div>{{orderRow.pcs}}</div>
-    <button (click)="increaseQuantity(i)">+</button>
-    <div>{{(orderRow.product.price * orderRow.pcs).toFixed(2)}} €</div>
-    <button (click)="removeFromCart(i)">x</button>
-  }
-
-  <div>
-    Total in cart: {{calculateTotal()}} €
-  </div>
-  <button (click)="changeView('emailInput')">Go and insert email</button>
+@for (orderRow of cart; track orderRow; let i = $index) {
+  <div>{{orderRow.product.name}}</div>
+  <div>{{orderRow.product.price.toFixed(2)}} €</div>
+  <button (click)="decreaseQuantity(i)">-</button>
+  <div>{{orderRow.pcs}}</div>
+  <button (click)="increaseQuantity(i)">+</button>
+  <div>{{(orderRow.product.price * orderRow.pcs).toFixed(2)}} €</div>
+  <button (click)="removeFromCart(i)">x</button>
 }
 
-@if(view === "emailInput") {
+<div>
+  Total in cart: {{calculateTotal()}} €
+</div>
+@if (isLoggedIn) {
+  <button (click)="sendOrderToBE()">Pay and order</button>
+} @else {
+  <button routerLink="/login">Login</button>
+}
+<br />
+@if (cart.length > 0) {
+  <select>
+    @for (pm of parcelMachines; track pm) {
+      <option>{{pm.NAME}}</option>
+    }
+  </select>
+
+  <br />
+  <button (click)="getPMsByCountry('ee')">Est</button>
+  <button (click)="getPMsByCountry('lt')">Lt</button>
+  <button (click)="getPMsByCountry('lv')">Lv</button>
+}
+
+
+
+<!-- @if(view === "emailInput") {
   <label>E-mail</label>
   <input [(ngModel)]="email" type="text">
   <button (click)="changeView('pay')">Insert</button>
-}
-
+} -->
+<!-- 
 @if(view === "pay") {
   <button (click)="sendOrderToBE()">Maksa ja telli</button>
-}
+} -->

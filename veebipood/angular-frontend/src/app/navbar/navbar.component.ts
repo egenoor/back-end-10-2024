@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { RouterLink } from '@angular/router'
+import { Router, RouterLink } from '@angular/router'
 import { AuthService } from '../services/auth.service'
 
 @Component({
@@ -12,7 +12,9 @@ import { AuthService } from '../services/auth.service'
 export class NavbarComponent {
   loggedIn = false;
   showButton = false;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // behaviorSubjecti .subscribe käivitub kohe
@@ -38,5 +40,6 @@ export class NavbarComponent {
     sessionStorage.clear();
     this.authService.loggedInSubject.next(false);
     this.authService.adminSubject.next(false);
+    this.router.navigateByUrl("/");
   }
 }

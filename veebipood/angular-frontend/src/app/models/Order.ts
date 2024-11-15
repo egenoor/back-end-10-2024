@@ -5,6 +5,6 @@ export interface Order {
   id?: number;
   creation?: Date;
   totalSum?: number;
-  person: Person;
+  person?: Person;
   orderRows: OrderRow[]
 }
