@@ -1,4 +1,4 @@
-package ee.ege.veebipood.model;
+package ee.ege.veebipood.model.supplier;
 
 import lombok.Data;
 

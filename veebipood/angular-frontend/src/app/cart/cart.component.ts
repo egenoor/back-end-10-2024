@@ -73,6 +73,8 @@ export class CartComponent {
     if(sessionStorage.getItem("token") === null) {
       return;
     }
-    this.orderService.saveOrder(order).subscribe();
+    this.orderService.saveOrder(order).subscribe(res => {
+      window.location.href = res.link;
+    });
   }
 }

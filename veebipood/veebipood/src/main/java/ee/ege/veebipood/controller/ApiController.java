@@ -1,8 +1,8 @@
 package ee.ege.veebipood.controller;
 
 import ee.ege.veebipood.model.ParcelMachine;
-import ee.ege.veebipood.model.SupplierProduct;
-import ee.ege.veebipood.model.SupplierProductEscuela;
+import ee.ege.veebipood.model.supplier.SupplierProduct;
+import ee.ege.veebipood.model.supplier.SupplierProductEscuela;
 import ee.ege.veebipood.service.ParcelMachineService;
 import ee.ege.veebipood.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
