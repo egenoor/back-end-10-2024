@@ -1,41 +1,45 @@
-<label>Search</label>
-<input
-  [(ngModel)]="search"
-  (ngModelChange)="searchFromProducts()"
-  type="text"
-/>
-@for (product of products; track product.id) {
-<p>{{ product.name }}</p>
-<p>{{ product.price }}</p>
-<button type="button" class="btn btn-primary" (click)="addToCart(product)">
-  Lisa ostukorvi
-</button>
-<!-- <button routerLink="/product/{{product.id}}">Vaata detailsemat</button> -->
-<button
-  type="button"
-  class="btn btn-primary"
-  [routerLink]="['product', product.id]"
->
-  Vt detailsemalt
-</button>
-}
-<br /><br />
-@if (totalElements !== 0) {
-<button
-  type="button"
-  class="btn"
-  [disabled]="page === 0"
-  (click)="previousPage()"
->
-  <
-</button>
-<span>{{ page + 1 }}</span>
-<button
-  type="button"
-  class="btn"
-  [disabled]="page + 1 === totalPages"
-  (click)="nextPage()"
->
+<div class="homepage-container">
+  <div class="form-container">
+    <label>Search</label>
+    <input
+      [(ngModel)]="search"
+      (ngModelChange)="searchFromProducts()"
+      type="text"
+    />
+  </div>
+  @for (product of products; track product.id) {
+  <p>{{ product.name }}</p>
+  <p>{{ product.price }}</p>
+  <button type="button" class="btn btn-secondary" (click)="addToCart(product)">
+    Lisa ostukorvi
+  </button>
+  <!-- <button routerLink="/product/{{product.id}}">Vaata detailsemat</button> -->
+  <button
+    type="button"
+    class="btn btn-secondary"
+    [routerLink]="['product', product.id]"
   >
-</button>
-}
+    Vt detailsemalt
+  </button>
+  }
+  <br /><br />
+  @if (totalElements !== 0) {
+  <button
+    type="button"
+    class="btn"
+    [disabled]="page === 0"
+    (click)="previousPage()"
+  >
+    <
+  </button>
+  <span>{{ page + 1 }}</span>
+  <button
+    type="button"
+    class="btn"
+    [disabled]="page + 1 === totalPages"
+    (click)="nextPage()"
+  >
+    >
+  </button>
+  }
+</div>

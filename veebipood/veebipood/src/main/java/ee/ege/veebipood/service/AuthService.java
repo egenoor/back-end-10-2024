@@ -17,8 +17,6 @@ import java.util.Map;
 @Service
 public class AuthService {
 
-
-
     public Token getToken(Person person) {
         Date expirationDate = new Date((new Date()).getTime() + 2 * 3600*1000);
         Map<String, String> claims = new HashMap<>();

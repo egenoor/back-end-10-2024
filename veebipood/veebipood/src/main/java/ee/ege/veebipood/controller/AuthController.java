@@ -4,7 +4,6 @@ import ee.ege.veebipood.entity.Person;
 import ee.ege.veebipood.exception.ValidationException;
 import ee.ege.veebipood.model.EmailPassword;
 import ee.ege.veebipood.model.Token;
-import ee.ege.veebipood.repository.OrderRepository;
 import ee.ege.veebipood.repository.PersonRepository;
 import ee.ege.veebipood.service.AuthService;
 import ee.ege.veebipood.service.PersonService;
@@ -16,6 +15,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Log4j2
 @RestController
@@ -31,9 +32,6 @@ public class AuthController {
     PersonRepository personRepository;
 
     @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
     AuthService authService;
 
     @PostMapping("signup")
@@ -41,19 +39,22 @@ public class AuthController {
         authService.validate(person);
         String hashedPassword = encoder.encode(person.getPassword());
         person.setPassword(hashedPassword);
-        personService.savePerson(person);
         Person savedPerson = personService.savePerson(person);
         return ResponseEntity.ok().body(authService.getToken(savedPerson));
     }
 
     @PostMapping("login")
-    public Token login(@RequestBody EmailPassword emailPassword) {
+    public Token login(@RequestBody EmailPassword emailPassword) throws ValidationException {
+        Optional<Person> personOptional = personRepository.findById(emailPassword.getEmail());
+        if (personOptional.isEmpty()) {
+            throw new ValidationException("Email pole korrektne");
+        }
         Person person = personRepository.findById(emailPassword.getEmail()).orElseThrow();
-        if (encoder.matches(emailPassword.getPassword(), person.getPassword())) {
-            return authService.getToken(person);
+        if (!encoder.matches(emailPassword.getPassword(), person.getPassword())) {
+            throw new ValidationException("Parool pole korrektne");
         }
         // pigem exceptioni väljaviskamine
-        return new Token();
+        return authService.getToken(person);
     }
 
     @GetMapping("admin")

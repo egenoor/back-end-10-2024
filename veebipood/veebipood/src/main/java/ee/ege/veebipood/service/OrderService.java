@@ -7,15 +7,13 @@ import ee.ege.veebipood.model.payment.*;
 import ee.ege.veebipood.repository.OrderRepository;
 import ee.ege.veebipood.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
@@ -23,8 +21,22 @@ import java.util.Date;
 public class OrderService {
     @Autowired
     OrderRepository orderRepository;
+
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    // saab application propertitest väärtuse kätte
+    @Value(("${everypay-url}"))
+    String everyPayUrl;
+
+    @Value(("${everypay-username}"))
+    String everyPayUsername;
+
+    @Value(("${everypay-authorization}"))
+    String everyPayAuthorization;
 
     public Order saveOrder(Order order) {
         //List<OrderRow> orderRows = orderRowRepository.saveAll(order.getOrderRows());
@@ -41,9 +53,7 @@ public class OrderService {
     }
 
     public PaymentLink getPaymentLink(Order order) {
-        RestTemplate restTemplate = new RestTemplate();
-
-        String url = "https://igw-demo.every-pay.com/api/v4/payments/oneoff";
+        String url = everyPayUrl + "/api/v4/payments/oneoff";
         EveryPayBody body = new EveryPayBody();
         body.setAccount_name("EUR3D1");
         body.setNonce("fdfd" + ZonedDateTime.now() + Math.random());
@@ -51,10 +61,10 @@ public class OrderService {
         body.setAmount(order.getTotalSum());
         body.setOrder_reference(order.getId().toString());
         body.setCustomer_url("https://err.ee");
-        body.setApi_username("92ddcfab96e34a5f");
+        body.setApi_username(everyPayUsername);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set(HttpHeaders.AUTHORIZATION, "Basic OTJkZGNmYWI5NmUzNGE1Zjo4Y2QxOWU5OWU5YzJjMjA4ZWU1NjNhYmY3ZDBlNGRhZA==");
+        headers.set(HttpHeaders.AUTHORIZATION, everyPayAuthorization);
         headers.set(HttpHeaders.CONTENT_TYPE, "application/json");
 
         HttpEntity<EveryPayBody> httpEntity = new HttpEntity<>(body, headers);
@@ -70,10 +80,11 @@ public class OrderService {
     }
 
     public PaymentStatus checkPaymentStatus(String paymentReference) {
-        RestTemplate restTemplate = new RestTemplate();
-        String url = "https://igw-demo.every-pay.com/api/v4/payments/" + paymentReference + "?api_username=92ddcfab96e34a5f&detailed=false";
+        String url = everyPayUrl + "/api/v4/payments/" +
+                paymentReference + "?api_username=" +
+                everyPayUsername + "&detailed=false";
         HttpHeaders headers = new HttpHeaders();
-        headers.set(HttpHeaders.AUTHORIZATION, "Basic OTJkZGNmYWI5NmUzNGE1Zjo4Y2QxOWU5OWU5YzJjMjA4ZWU1NjNhYmY3ZDBlNGRhZA==");
+        headers.set(HttpHeaders.AUTHORIZATION, everyPayAuthorization);
         headers.set(HttpHeaders.CONTENT_TYPE, "application/json");
         HttpEntity<Object> httpEntity = new HttpEntity<>(null, headers);
         ResponseEntity<PaymentStatusResponse> response = restTemplate.exchange(

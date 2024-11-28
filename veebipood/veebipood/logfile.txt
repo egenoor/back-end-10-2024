@@ -1,0 +1,247 @@
+2024-11-28T11:29:51.750+02:00  INFO 12256 --- [main] ee.ege.veebipood.VeebipoodApplication    : Starting VeebipoodApplication using Java 21.0.2 with PID 12256 (C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood\target\classes started by Ege-Rita Noor in C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood)
+2024-11-28T11:29:51.762+02:00  INFO 12256 --- [main] ee.ege.veebipood.VeebipoodApplication    : The following 1 profile is active: "dev"
+2024-11-28T11:29:52.821+02:00  INFO 12256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:29:52.823+02:00  INFO 12256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-28T11:29:52.862+02:00  INFO 12256 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:29:52.865+02:00  INFO 12256 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:29:52.866+02:00  INFO 12256 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.PersonRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:29:52.867+02:00  INFO 12256 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:29:52.868+02:00  INFO 12256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 0 JDBC repository interfaces.
+2024-11-28T11:29:52.883+02:00  INFO 12256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:29:52.884+02:00  INFO 12256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28T11:29:52.932+02:00  INFO 12256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 4 JPA repository interfaces.
+2024-11-28T11:29:53.641+02:00  INFO 12256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T11:29:53.655+02:00  INFO 12256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T11:29:53.655+02:00  INFO 12256 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-28T11:29:53.730+02:00  INFO 12256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T11:29:53.730+02:00  INFO 12256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1904 ms
+2024-11-28T11:29:53.994+02:00  INFO 12256 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28T11:29:54.062+02:00  INFO 12256 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-28T11:29:54.111+02:00  INFO 12256 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-28T11:29:54.522+02:00  INFO 12256 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28T11:29:54.555+02:00  INFO 12256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-28T11:29:54.760+02:00  INFO 12256 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e97f115
+2024-11-28T11:29:54.762+02:00  INFO 12256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-28T11:29:55.861+02:00  INFO 12256 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28T11:29:55.993+02:00  INFO 12256 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:29:56.661+02:00  WARN 12256 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28T11:29:57.928+02:00  INFO 12256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T11:29:57.938+02:00  INFO 12256 --- [main] ee.ege.veebipood.VeebipoodApplication    : Started VeebipoodApplication in 6.7 seconds (process running for 7.243)
+2024-11-28T11:30:04.911+02:00  INFO 12256 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:30:04.914+02:00  INFO 12256 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-28T11:30:04.919+02:00  INFO 12256 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-28T11:30:07.045+02:00  INFO 21960 --- [main] ee.ege.veebipood.VeebipoodApplication    : Starting VeebipoodApplication using Java 21.0.2 with PID 21960 (C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood\target\classes started by Ege-Rita Noor in C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood)
+2024-11-28T11:30:07.052+02:00  INFO 21960 --- [main] ee.ege.veebipood.VeebipoodApplication    : The following 1 profile is active: "dev"
+2024-11-28T11:30:08.059+02:00  INFO 21960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:30:08.061+02:00  INFO 21960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-28T11:30:08.097+02:00  INFO 21960 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:30:08.101+02:00  INFO 21960 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:30:08.103+02:00  INFO 21960 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.PersonRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:30:08.104+02:00  INFO 21960 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:30:08.105+02:00  INFO 21960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 0 JDBC repository interfaces.
+2024-11-28T11:30:08.120+02:00  INFO 21960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:30:08.121+02:00  INFO 21960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28T11:30:08.181+02:00  INFO 21960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2024-11-28T11:30:08.901+02:00  INFO 21960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T11:30:08.917+02:00  INFO 21960 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T11:30:08.918+02:00  INFO 21960 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-28T11:30:08.988+02:00  INFO 21960 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T11:30:08.988+02:00  INFO 21960 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1855 ms
+2024-11-28T11:30:09.236+02:00  INFO 21960 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28T11:30:09.313+02:00  INFO 21960 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-28T11:30:09.377+02:00  INFO 21960 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-28T11:30:09.788+02:00  INFO 21960 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28T11:30:09.823+02:00  INFO 21960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-28T11:30:10.027+02:00  INFO 21960 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a5c6b76
+2024-11-28T11:30:10.028+02:00  INFO 21960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-28T11:30:11.196+02:00  INFO 21960 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28T11:30:11.337+02:00  INFO 21960 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:30:12.055+02:00  WARN 21960 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28T11:30:13.992+02:00  INFO 21960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T11:30:14.001+02:00  INFO 21960 --- [main] ee.ege.veebipood.VeebipoodApplication    : Started VeebipoodApplication in 7.461 seconds (process running for 7.984)
+2024-11-28T11:33:39.749+02:00  INFO 21960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:33:39.752+02:00  INFO 21960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-28T11:33:39.758+02:00  INFO 21960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-28T11:33:44.342+02:00  INFO 12976 --- [main] ee.ege.veebipood.VeebipoodApplication    : Starting VeebipoodApplication using Java 21.0.2 with PID 12976 (C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood\target\classes started by Ege-Rita Noor in C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood)
+2024-11-28T11:33:44.351+02:00  INFO 12976 --- [main] ee.ege.veebipood.VeebipoodApplication    : The following 1 profile is active: "dev"
+2024-11-28T11:33:45.428+02:00  INFO 12976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:33:45.430+02:00  INFO 12976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-28T11:33:45.468+02:00  INFO 12976 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:33:45.472+02:00  INFO 12976 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:33:45.475+02:00  INFO 12976 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.PersonRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:33:45.477+02:00  INFO 12976 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:33:45.478+02:00  INFO 12976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 0 JDBC repository interfaces.
+2024-11-28T11:33:45.494+02:00  INFO 12976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:33:45.495+02:00  INFO 12976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28T11:33:45.560+02:00  INFO 12976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 4 JPA repository interfaces.
+2024-11-28T11:33:46.463+02:00  INFO 12976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T11:33:46.485+02:00  INFO 12976 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T11:33:46.485+02:00  INFO 12976 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-28T11:33:46.594+02:00  INFO 12976 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T11:33:46.594+02:00  INFO 12976 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2169 ms
+2024-11-28T11:33:46.844+02:00  INFO 12976 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28T11:33:46.925+02:00  INFO 12976 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-28T11:33:46.966+02:00  INFO 12976 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-28T11:33:47.351+02:00  INFO 12976 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28T11:33:47.384+02:00  INFO 12976 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-28T11:33:47.591+02:00  INFO 12976 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d6b42cf
+2024-11-28T11:33:47.593+02:00  INFO 12976 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-28T11:33:48.728+02:00  INFO 12976 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28T11:33:48.868+02:00  INFO 12976 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:33:49.553+02:00  WARN 12976 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28T11:33:51.056+02:00  INFO 12976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T11:33:51.065+02:00  INFO 12976 --- [main] ee.ege.veebipood.VeebipoodApplication    : Started VeebipoodApplication in 7.288 seconds (process running for 7.75)
+2024-11-28T11:33:55.724+02:00  INFO 12976 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T11:33:55.725+02:00  INFO 12976 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T11:33:55.726+02:00  INFO 12976 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T11:33:55.919+02:00  INFO 12976 --- [http-nio-8080-exec-1] e.ege.veebipood.service.SupplierService  : Login välja2
+2024-11-28T11:35:51.862+02:00  INFO 12976 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:35:51.866+02:00  INFO 12976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-28T11:35:51.869+02:00  INFO 12976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-28T11:35:55.964+02:00  INFO 29556 --- [main] ee.ege.veebipood.VeebipoodApplication    : Starting VeebipoodApplication using Java 21.0.2 with PID 29556 (C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood\target\classes started by Ege-Rita Noor in C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood)
+2024-11-28T11:35:55.970+02:00  INFO 29556 --- [main] ee.ege.veebipood.VeebipoodApplication    : The following 1 profile is active: "dev"
+2024-11-28T11:35:57.009+02:00  INFO 29556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:35:57.010+02:00  INFO 29556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-28T11:35:57.050+02:00  INFO 29556 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:35:57.054+02:00  INFO 29556 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:35:57.055+02:00  INFO 29556 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.PersonRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:35:57.057+02:00  INFO 29556 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:35:57.057+02:00  INFO 29556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 0 JDBC repository interfaces.
+2024-11-28T11:35:57.069+02:00  INFO 29556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:35:57.070+02:00  INFO 29556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28T11:35:57.120+02:00  INFO 29556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2024-11-28T11:35:57.828+02:00  INFO 29556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T11:35:57.843+02:00  INFO 29556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T11:35:57.844+02:00  INFO 29556 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-28T11:35:57.926+02:00  INFO 29556 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T11:35:57.927+02:00  INFO 29556 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1897 ms
+2024-11-28T11:35:58.177+02:00  INFO 29556 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28T11:35:58.266+02:00  INFO 29556 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-28T11:35:58.306+02:00  INFO 29556 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-28T11:35:58.685+02:00  INFO 29556 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28T11:35:58.721+02:00  INFO 29556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-28T11:35:58.934+02:00  INFO 29556 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@58f7215c
+2024-11-28T11:35:58.936+02:00  INFO 29556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-28T11:36:00.066+02:00  INFO 29556 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28T11:36:00.202+02:00  INFO 29556 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:36:00.873+02:00  WARN 29556 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28T11:36:02.265+02:00  INFO 29556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T11:36:02.277+02:00  INFO 29556 --- [main] ee.ege.veebipood.VeebipoodApplication    : Started VeebipoodApplication in 6.811 seconds (process running for 7.279)
+2024-11-28T11:36:28.703+02:00  INFO 29556 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T11:36:28.703+02:00  INFO 29556 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T11:36:28.704+02:00  INFO 29556 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T11:36:28.884+02:00  INFO 29556 --- [http-nio-8080-exec-1] e.ege.veebipood.service.SupplierService  : Login välja2
+2024-11-28T11:36:28.885+02:00  INFO 29556 --- [http-nio-8080-exec-1] e.ege.veebipood.service.SupplierService  : org.springframework.web.client.RestTemplate@32f61741
+2024-11-28T11:36:29.747+02:00  INFO 29556 --- [http-nio-8080-exec-3] e.ege.veebipood.service.SupplierService  : Login välja2
+2024-11-28T11:36:29.748+02:00  INFO 29556 --- [http-nio-8080-exec-3] e.ege.veebipood.service.SupplierService  : org.springframework.web.client.RestTemplate@51596f6
+2024-11-28T11:36:31.514+02:00  INFO 29556 --- [http-nio-8080-exec-4] e.ege.veebipood.service.SupplierService  : Login välja2
+2024-11-28T11:36:31.514+02:00  INFO 29556 --- [http-nio-8080-exec-4] e.ege.veebipood.service.SupplierService  : org.springframework.web.client.RestTemplate@685e92ff
+2024-11-28T11:41:30.786+02:00  INFO 29556 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:41:30.789+02:00  INFO 29556 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-28T11:41:30.792+02:00  INFO 29556 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-28T11:41:34.894+02:00  INFO 31504 --- [main] ee.ege.veebipood.VeebipoodApplication    : Starting VeebipoodApplication using Java 21.0.2 with PID 31504 (C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood\target\classes started by Ege-Rita Noor in C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood)
+2024-11-28T11:41:34.901+02:00  INFO 31504 --- [main] ee.ege.veebipood.VeebipoodApplication    : The following 1 profile is active: "dev"
+2024-11-28T11:41:35.897+02:00  INFO 31504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:41:35.899+02:00  INFO 31504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-28T11:41:35.934+02:00  INFO 31504 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:41:35.937+02:00  INFO 31504 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:41:35.938+02:00  INFO 31504 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.PersonRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:41:35.939+02:00  INFO 31504 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:41:35.940+02:00  INFO 31504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 0 JDBC repository interfaces.
+2024-11-28T11:41:35.952+02:00  INFO 31504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:41:35.953+02:00  INFO 31504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28T11:41:36.008+02:00  INFO 31504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 4 JPA repository interfaces.
+2024-11-28T11:41:36.741+02:00  INFO 31504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T11:41:36.757+02:00  INFO 31504 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T11:41:36.757+02:00  INFO 31504 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-28T11:41:36.828+02:00  INFO 31504 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T11:41:36.829+02:00  INFO 31504 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1863 ms
+2024-11-28T11:41:37.085+02:00  INFO 31504 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28T11:41:37.178+02:00  INFO 31504 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-28T11:41:37.231+02:00  INFO 31504 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-28T11:41:37.624+02:00  INFO 31504 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28T11:41:37.657+02:00  INFO 31504 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-28T11:41:37.869+02:00  INFO 31504 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@31006a75
+2024-11-28T11:41:37.871+02:00  INFO 31504 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-28T11:41:38.983+02:00  INFO 31504 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28T11:41:39.121+02:00  INFO 31504 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:41:39.996+02:00  WARN 31504 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28T11:41:41.469+02:00  INFO 31504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T11:41:41.485+02:00  INFO 31504 --- [main] ee.ege.veebipood.VeebipoodApplication    : Started VeebipoodApplication in 7.091 seconds (process running for 7.541)
+2024-11-28T11:42:58.386+02:00  INFO 31504 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:42:58.388+02:00  INFO 31504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-28T11:42:58.392+02:00  INFO 31504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-28T11:43:02.601+02:00  INFO 27892 --- [main] ee.ege.veebipood.VeebipoodApplication    : Starting VeebipoodApplication using Java 21.0.2 with PID 27892 (C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood\target\classes started by Ege-Rita Noor in C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood)
+2024-11-28T11:43:02.614+02:00  INFO 27892 --- [main] ee.ege.veebipood.VeebipoodApplication    : The following 1 profile is active: "dev"
+2024-11-28T11:43:03.627+02:00  INFO 27892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:43:03.631+02:00  INFO 27892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-28T11:43:03.674+02:00  INFO 27892 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:43:03.677+02:00  INFO 27892 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:43:03.679+02:00  INFO 27892 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.PersonRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:43:03.680+02:00  INFO 27892 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:43:03.681+02:00  INFO 27892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 0 JDBC repository interfaces.
+2024-11-28T11:43:03.694+02:00  INFO 27892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:43:03.695+02:00  INFO 27892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28T11:43:03.761+02:00  INFO 27892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2024-11-28T11:43:04.442+02:00  INFO 27892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T11:43:04.468+02:00  INFO 27892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T11:43:04.468+02:00  INFO 27892 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-28T11:43:04.543+02:00  INFO 27892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T11:43:04.543+02:00  INFO 27892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1871 ms
+2024-11-28T11:43:04.807+02:00  INFO 27892 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28T11:43:04.894+02:00  INFO 27892 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-28T11:43:04.940+02:00  INFO 27892 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-28T11:43:05.330+02:00  INFO 27892 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28T11:43:05.369+02:00  INFO 27892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-28T11:43:05.588+02:00  INFO 27892 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d6b42cf
+2024-11-28T11:43:05.590+02:00  INFO 27892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-28T11:43:06.634+02:00  INFO 27892 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28T11:43:06.775+02:00  INFO 27892 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:43:07.584+02:00  WARN 27892 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28T11:43:08.896+02:00  INFO 27892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T11:43:08.905+02:00  INFO 27892 --- [main] ee.ege.veebipood.VeebipoodApplication    : Started VeebipoodApplication in 6.805 seconds (process running for 7.296)
+2024-11-28T11:44:58.507+02:00  INFO 27892 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T11:44:58.508+02:00  INFO 27892 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T11:44:58.509+02:00  INFO 27892 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T11:44:58.724+02:00  INFO 27892 --- [http-nio-8080-exec-2] e.ege.veebipood.service.SupplierService  : Login välja2
+2024-11-28T11:44:58.726+02:00  INFO 27892 --- [http-nio-8080-exec-2] e.ege.veebipood.service.SupplierService  : org.springframework.web.client.RestTemplate@341889a1
+2024-11-28T11:53:30.265+02:00  INFO 27892 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:53:30.268+02:00  INFO 27892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-28T11:53:30.272+02:00  INFO 27892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-28T11:53:34.370+02:00  INFO 13484 --- [main] ee.ege.veebipood.VeebipoodApplication    : Starting VeebipoodApplication using Java 21.0.2 with PID 13484 (C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood\target\classes started by Ege-Rita Noor in C:\Users\Ege-Rita Noor\Documents\GitHub\back-end-10-2024\veebipood\veebipood)
+2024-11-28T11:53:34.375+02:00  INFO 13484 --- [main] ee.ege.veebipood.VeebipoodApplication    : The following 1 profile is active: "dev"
+2024-11-28T11:53:35.407+02:00  INFO 13484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:53:35.408+02:00  INFO 13484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-28T11:53:35.455+02:00  INFO 13484 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:53:35.458+02:00  INFO 13484 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.OrderRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:53:35.459+02:00  INFO 13484 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.PersonRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:53:35.461+02:00  INFO 13484 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface ee.ege.veebipood.repository.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-11-28T11:53:35.462+02:00  INFO 13484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 0 JDBC repository interfaces.
+2024-11-28T11:53:35.475+02:00  INFO 13484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-28T11:53:35.477+02:00  INFO 13484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28T11:53:35.528+02:00  INFO 13484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 4 JPA repository interfaces.
+2024-11-28T11:53:36.239+02:00  INFO 13484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T11:53:36.262+02:00  INFO 13484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T11:53:36.262+02:00  INFO 13484 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-28T11:53:36.353+02:00  INFO 13484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T11:53:36.353+02:00  INFO 13484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1897 ms
+2024-11-28T11:53:36.592+02:00  INFO 13484 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28T11:53:36.677+02:00  INFO 13484 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-28T11:53:36.714+02:00  INFO 13484 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-28T11:53:37.081+02:00  INFO 13484 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28T11:53:37.114+02:00  INFO 13484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-28T11:53:37.314+02:00  INFO 13484 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@31006a75
+2024-11-28T11:53:37.316+02:00  INFO 13484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-28T11:53:38.601+02:00  INFO 13484 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28T11:53:38.740+02:00  INFO 13484 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T11:53:39.612+02:00  WARN 13484 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28T11:53:40.899+02:00  INFO 13484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T11:53:40.907+02:00  INFO 13484 --- [main] ee.ege.veebipood.VeebipoodApplication    : Started VeebipoodApplication in 7.058 seconds (process running for 7.566)
+2024-11-28T11:53:44.359+02:00  INFO 13484 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T11:53:44.360+02:00  INFO 13484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T11:53:44.361+02:00  INFO 13484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T11:53:44.537+02:00  WARN 13484 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-11-28T11:54:50.508+02:00  WARN 13484 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-11-28T12:04:09.430+02:00  INFO 13484 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28T12:04:09.432+02:00  INFO 13484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-28T12:04:09.436+02:00  INFO 13484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
