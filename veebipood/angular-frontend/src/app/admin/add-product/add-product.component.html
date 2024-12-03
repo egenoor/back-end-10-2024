@@ -1,22 +1,22 @@
 <span class="error">{{ message }}</span>
 <form #addProductForm="ngForm" (submit)="addProduct(addProductForm)">
-  <label></label>Name<br />
-  <input type="text" ngModel name="name" /><br />
-  <label></label>Price<br />
-  <input type="text" ngModel name="price" /><br />
-  <label></label>Image<br />
+  <label>Name</label><br />
+  <input type="text" ngModel name="name" required/><br />
+  <label>Price</label><br />
+  <input type="text" ngModel name="price" required/><br />
+  <label>Image</label><br />
   <input type="text" ngModel name="image" /><br />
-  <label></label>Active<br />
+  <label>Active</label><br />
   <input type="checkbox" ngModel name="active" /><br />
-  <label></label>Description<br />
-  <input type="text" ngModel name="description" /><br />
-  <label></label>Protein<br />
+  <label>Description</label><br />
+  <textarea autosize type="text" ngModel name="description"></textarea><br />
+  <label>Protein</label><br />
   <input type="text" ngModel name="protein" /><br />
-  <label></label>Carbohydrate<br />
+  <label>Carbohydrate</label><br />
   <input type="text" ngModel name="carbohydrate" /><br />
-  <label></label>Fat<br />
+  <label>Fat</label><br />
   <input type="text" ngModel name="fat" /><br />
-  <label></label>Category<br />
+  <label>Category</label><br />
   <input type="text" ngModel name="category" /><br /><br />
-  <button type="submit" class="btn btn-primary">Add</button>
+  <button [disabled]="addProductForm.invalid" type="submit" class="btn btn-primary">Add</button>
 </form>

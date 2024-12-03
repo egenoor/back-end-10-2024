@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { FormsModule, NgForm } from '@angular/forms'
+import { AutosizeDirective } from '../../directives/autosize.directive'
 import { Category } from '../../models/Category'
 import { Nutrients } from '../../models/Nutrients'
 import { Product } from '../../models/Product'
@@ -8,7 +9,7 @@ import { ProductService } from '../../services/product.service'
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AutosizeDirective],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.scss'
 })

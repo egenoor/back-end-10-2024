@@ -2,7 +2,10 @@ import { Component } from '@angular/core'
 import { FormsModule, NgForm } from '@angular/forms'
 import { Router } from '@angular/router'
 import { Person } from '../models/Person'
+import { Token } from '../models/Token'
 import { AuthService } from '../services/auth.service'
+import { ErrorResponse } from '../models/ErrorMessage'
+
 
 @Component({
   selector: 'app-signup',
@@ -21,30 +24,25 @@ export class SignupComponent {
     //   this.message = "Email cannot be empty";
     // }
     const password = form.value.password;
-    // if (password === "") {
-    //   this.message = "Password cannot be empty";
-    // }
     const firstName = form.value.firstName;
-    // if (firstName === "") {
-    //   this.message = "First name cannot be empty";
-    // }
     const lastName = form.value.lastName;
-    // if (lastName === "") {
-    //   this.message = "Last name cannot be empty";
-    // }
     const person: Person = new Person(email, password, firstName, lastName);
 
-    this.authService.signup(person).subscribe(res => {
-      sessionStorage.setItem("token", res.token);
-      sessionStorage.setItem("expiration", res.expiration.getTime().toString());
-      this.authService.loggedInSubject.next(true);
-      this.authService.adminSubject.next(true);
-      this.router.navigateByUrl("/");
-    },
-    error => {
-      this.message = error.error.name;
-    }
-  
-  );
+    this.authService.signup(person).subscribe({
+      next: this.handleUpdateResponse.bind(this),
+      error: this.handleError.bind(this)
+    })
+  }
+
+  private handleUpdateResponse(res: Token) {
+    sessionStorage.setItem("token", res.token);
+    sessionStorage.setItem("expiration", res.expiration.getTime().toString());
+    this.authService.loggedInSubject.next(true);
+    this.authService.adminSubject.next(true);
+    this.router.navigateByUrl("/");
+  }
+
+  private handleError(res: ErrorResponse) {
+    this.message = res.error.name;
   }
 }

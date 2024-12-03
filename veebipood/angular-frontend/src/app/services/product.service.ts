@@ -12,15 +12,16 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(pageNr: number, pageSize: number): Observable<ProductPage> {
-    return this.http.get<ProductPage>("http://localhost:8080/public-products", {params: {page: pageNr, pageSize: pageSize}});
+    return this.http.get<ProductPage>("http://localhost:8080/public-products", {params: {page: pageNr, size: pageSize}});
   }
 
   getProduct(productId: number): Observable<Product> {
     return this.http.get<Product>("http://localhost:8080/product", {params: {id: productId}})
   }
 
-  getProductsByName(search: string): Observable<ProductPage> {
-    return this.http.get<ProductPage>("http://localhost:8080/find-by-name", {params: {name: search}})
+  getProductsByName(search: string, pageNr: number, pageSize: number): Observable<ProductPage> {
+    return this.http.get<ProductPage>("http://localhost:8080/find-by-name",
+    {params: {name: search, page: pageNr, size: pageSize}})
   }
 
   addProduct(product: Product): Observable<void> {

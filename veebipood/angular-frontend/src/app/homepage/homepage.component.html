@@ -1,14 +1,11 @@
 <div class="homepage-container">
-  <div class="form-container">
-    <label>Search</label>
-    <input
-      [(ngModel)]="search"
-      (ngModelChange)="searchFromProducts()"
-      type="text"
-    />
-  </div>
+  <app-search-bar (searchFetch)="fetchProductsByName($event)"/>
+  <div>{{totalElements}}</div>
+
+  <input type="range" min="2" max="10" [(ngModel)]="nameLength"/>
+
   @for (product of products; track product.id) {
-  <p>{{ product.name }}</p>
+  <p>{{ product.name | shortener:nameLength}}</p>
   <p>{{ product.price }}</p>
   <button type="button" class="btn btn-secondary" (click)="addToCart(product)">
     Lisa ostukorvi
@@ -24,22 +21,6 @@
   }
   <br /><br />
   @if (totalElements !== 0) {
-  <button
-    type="button"
-    class="btn"
-    [disabled]="page === 0"
-    (click)="previousPage()"
-  >
-    <
-  </button>
-  <span>{{ page + 1 }}</span>
-  <button
-    type="button"
-    class="btn"
-    [disabled]="page + 1 === totalPages"
-    (click)="nextPage()"
-  >
-    >
-  </button>
+    <app-pagination [totalPages] = "totalPages" (pageChangeFetch)="fetchProducts($event)"/>
   }
 </div>

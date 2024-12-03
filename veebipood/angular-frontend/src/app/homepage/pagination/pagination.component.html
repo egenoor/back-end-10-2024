@@ -1,0 +1,17 @@
+<button
+  type="button"
+  class="btn"
+  [disabled]="page === 0"
+  (click)="previousPage()"
+>
+  <
+</button>
+<span>{{ page + 1 }}</span>
+<button
+  type="button"
+  class="btn"
+  [disabled]="page + 1 === totalPages"
+  (click)="nextPage()"
+>
+  >
+</button>
