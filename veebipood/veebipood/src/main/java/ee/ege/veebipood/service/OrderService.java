@@ -1,5 +1,6 @@
 package ee.ege.veebipood.service;
 
+import ee.ege.veebipood.cache.ProductCache;
 import ee.ege.veebipood.entity.Order;
 import ee.ege.veebipood.entity.OrderRow;
 import ee.ege.veebipood.entity.Product;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class OrderService {
@@ -28,6 +30,9 @@ public class OrderService {
     @Autowired
     RestTemplate restTemplate;
 
+    @Autowired
+    ProductCache productCache;
+
     // saab application propertitest väärtuse kätte
     @Value(("${everypay-url}"))
     String everyPayUrl;
@@ -38,14 +43,15 @@ public class OrderService {
     @Value(("${everypay-authorization}"))
     String everyPayAuthorization;
 
-    public Order saveOrder(Order order) {
+    public Order saveOrder(Order order) throws ExecutionException {
         //List<OrderRow> orderRows = orderRowRepository.saveAll(order.getOrderRows());
         // order.setOtderRows(orderRows);
         // peaaegu võrdne cascade type alliga (kustutada ei oska nagu cascade)
         order.setCreation(new Date());
         double totalSum = 0;
         for(OrderRow row: order.getOrderRows()){
-            Product dbProduct = productRepository.findById(row.getProduct().getId()).orElseThrow();
+            // Product dbProduct = productRepository.findById(row.getProduct().getId()).orElseThrow();
+            Product dbProduct = productCache.getProduct(row.getProduct().getId());
             totalSum += dbProduct.getPrice() * row.getPcs();
         }
         order.setTotalSum(totalSum);

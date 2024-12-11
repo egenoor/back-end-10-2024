@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.ExecutionException;
+
 @RestController
 public class OrderController {
 
@@ -25,7 +27,7 @@ public class OrderController {
     }
 
     @PostMapping("order")
-    public PaymentLink saveOrder(@RequestBody Order order) {
+    public PaymentLink saveOrder(@RequestBody Order order) throws ExecutionException {
         String email = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         Person person = new Person();
         person.setEmail(email);

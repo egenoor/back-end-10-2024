@@ -1,6 +1,7 @@
 package ee.ege.veebipood.controller;
 
 import ee.ege.veebipood.model.ParcelMachine;
+import ee.ege.veebipood.model.supplier.JohnDoe;
 import ee.ege.veebipood.model.supplier.SupplierProduct;
 import ee.ege.veebipood.model.supplier.SupplierProductEscuela;
 import ee.ege.veebipood.service.ParcelMachineService;
@@ -39,5 +40,10 @@ public class ApiController {
     @GetMapping("supplier-escuela")
     public List<SupplierProductEscuela> getEscuelaProducts() {
         return supplierService.getEscuelaProducts();
+    }
+
+    @GetMapping("xml-data")
+    public JohnDoe getXMLData() {
+        return supplierService.getXMLData();
     }
 }

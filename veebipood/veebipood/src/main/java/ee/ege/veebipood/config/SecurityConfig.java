@@ -31,13 +31,15 @@ public class SecurityConfig {
                                 .requestMatchers("/supplier").permitAll()
                                 .requestMatchers("/parcel-machines/**").permitAll()
                                 .requestMatchers("/supplier-escuela").permitAll()
+                                .requestMatchers("/xml-data").permitAll()
                                 .requestMatchers("/signup").permitAll()
                                 .requestMatchers("/login").permitAll()
                                 .requestMatchers("/admin").permitAll()
                                 .requestMatchers("/all-products").hasAuthority("admin")
+                                .requestMatchers(HttpMethod.PUT, ("/products")).permitAll()
                                 .requestMatchers(HttpMethod.POST, ("/categories")).hasAuthority("admin") // POST
                                 .requestMatchers(HttpMethod.GET, ("/categories")).permitAll() // GET
-                                .requestMatchers("/products/**").hasAuthority("admin")
+                                .requestMatchers("/products/**").permitAll()
 
                                 .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, BasicAuthenticationFilter.class)

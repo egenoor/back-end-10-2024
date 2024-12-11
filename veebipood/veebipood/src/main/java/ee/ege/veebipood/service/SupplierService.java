@@ -1,7 +1,12 @@
 package ee.ege.veebipood.service;
 
+import ee.ege.veebipood.model.supplier.JohnDoe;
+import ee.ege.veebipood.model.supplier.JohnDoeXML;
 import ee.ege.veebipood.model.supplier.SupplierProduct;
 import ee.ege.veebipood.model.supplier.SupplierProductEscuela;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Unmarshaller;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -9,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,5 +65,34 @@ public class SupplierService {
             return new ArrayList<>();
         }
         return Arrays.asList(response.getBody());
+    }
+
+    public JohnDoe getXMLData() {
+        String url = "https://mocktarget.apigee.net/xml";
+        // null -> Body ja Headers
+        ResponseEntity<String> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                null,
+                String.class
+        );
+        JohnDoeXML xml = unmarshalXml(response.getBody());
+        JohnDoe johnDoe = new JohnDoe();
+        johnDoe.setCity(xml.city);
+        johnDoe.setLastName(xml.lastName);
+        johnDoe.setFirstName(xml.firstName);
+        johnDoe.setState(xml.state);
+        return johnDoe;
+    }
+
+    private JohnDoeXML unmarshalXml(String xmlData) {
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(JohnDoeXML.class);
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            StringReader reader = new StringReader(xmlData);
+            return (JohnDoeXML) unmarshaller.unmarshal(reader);
+        } catch (JAXBException e) {
+            throw new RuntimeException("Error unmarshalling XML: " + e.getMessage(), e);
+        }
     }
 }

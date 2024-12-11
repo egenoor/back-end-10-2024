@@ -15,6 +15,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Page<Product> findByNameContainsIgnoreCase(String name, Pageable pageable);
 
+    List<Product> findAllByOrderByIdAsc();
+
 //    @Query("SELECT * FROM products WHERE category_id = :id")
 //    List<Product> findAllProductsByCategoryId(@Param("id") Long id);
 }
